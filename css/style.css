@@ -11,10 +11,18 @@
 li{
     list-style-type: none;
 }
+.search-input input{
+    color: gray;
+    max-width: 600px;
+}
 .wrap {
     max-width: 1253px;
     margin: 0 auto;
     box-sizing: border-box;
+    padding: 0 40px;
+}
+.btn-burger{
+    display: none;
 }
 .cursive{
     font-family: 'Qwitcher Grypen', cursive;
@@ -37,20 +45,56 @@ a{
     color: white;
     text-decoration: none;
 }
-.header-top-menu ul {
+.header-top-menu  {
     display: flex;
     list-style: none;
 }
-.header-top-menu ul li{
-    margin-right: 30px;
+.header-top-menu-media{
+    display: none;
+}
+.header-top-menu li{
+    margin-right: 1.875rem;
 
 }
-.arrow:after {
+.header-menu-right{
+    display: flex;
+}
+.dropbtn{
+    position: relative;
+}
+a:hover{
+    color: #00D664;
+}
+.dropbtn:after {
     content: "\F107";
     font-family: FontAwesome;
     padding-left: 5px;
     cursor: pointer;
   
+}
+.dropdown-content{
+    display: none;
+    position: absolute;
+    background-color: #302f2fc7;
+    max-width: 60px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 10px 20px;
+    margin-top: 5px;
+    font-size: 1rem;
+   backdrop-filter: blur(2px);
+
+}
+.dropdown-content li{
+    margin-bottom: 10px;
+
+}
+button:hover{
+    background-color: #025e2d;
+}
+.show{
+    display: block;
+    transition: 0.2s linear;
+
 }
 .btn__green {
     background-color: #00D664;
@@ -62,6 +106,7 @@ a{
     cursor: pointer;
     max-width: 200px;
     text-align: center;
+    transition: 0.2s linear;
 
 }
 .header-main{
@@ -147,28 +192,32 @@ a{
 .services-main {
     display: flex;
     padding: 75px 0 90px;
-    gap: 20px;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
 }
 .services-block h2{
     color: #1E266D;
     font-size: 34px;
     font-weight: 600;
+    box-sizing: border-box;
 }
-.block {
+.services-item {
     background-color: white;
-    padding: 45px;
+    padding: 25px 30px;
+    width: calc(20% - (25px));
 }
-.block h5{
+.services-item h5{
     color: #1E266D;
     font-size: 20px;
     margin-top: 10px;
 }
-.block p{
+.services-item p{
     margin: 35px 0;
     color: #696969;
     font-size: 15px;
 }
-.block a{
+.services-item a{
     color: #00D664;
     font-size: 15px;
     font-weight: 600;
@@ -283,17 +332,26 @@ a{
 
 }
 .price-item{
-    width: calc(25% - (35px));
+    width: 25%;
     text-align: start;
     margin-bottom: 40px;
+    padding: 10px 20px;
+    box-sizing: border-box;
 }
 .price-item h5 a{
     color: #1E266D;
     font-size: 18px;
     margin: 10px 0;
+    
+}
+.price-item:hover{
+    box-shadow: 0px 0px 50px 1px rgba(34, 60, 80, 0.2);
 }
 .price-item h5{
     margin: 10px 0;
+}
+.price-item img{
+    width: 100%;
 }
 .product-price-wrap{
     background-color: #F5F5F5;
@@ -499,4 +557,59 @@ input::placeholder{
     font-weight: 550;
 
     color: #39374D;
+}
+
+@media (max-width: 1215px){
+    .header-top-menu{
+        display: none;
+    }
+    .header-top-menu-media{
+        display: flex;
+    }
+    .header-top-menu-media{
+        display: flex;
+        justify-content: space-between;
+    }
+    .price-item{
+        width: calc(33%);
+        justify-content: center;
+    }
+
+    .btn-burger{
+        display: block;
+    }
+}
+@media (max-width: 1130px){
+    .about-main{
+        flex-direction: column-reverse;
+    }
+    .about-left{
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    .our-process{
+        flex-direction: column;
+        align-items: center;
+    }
+    .our-process-right{
+        padding-top: 25px;
+    }
+    .services-item{
+        width: calc(40% - (25px));
+    }
+}
+@media (max-width: 775px){
+    .price-item{
+        width: calc(50%);
+        justify-content: center;
+    }
+}
+@media (max-width: 570px){
+    .price-item{
+        width: calc(100%);
+        justify-content: center;
+    }
+    .services-item{
+        width: calc(90% - (25px));
+    }
 }
