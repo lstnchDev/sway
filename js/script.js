@@ -2,6 +2,7 @@ const dropBtn = document.querySelectorAll(".dropbtn")
 const dropDown = document.querySelector(".dropdown-content")
 
 for (let btn of dropBtn){
+    let activeBtn
     btn.addEventListener('click', (e)=>{
        
         if (btn.classList.contains("dropdown-active") === true) {

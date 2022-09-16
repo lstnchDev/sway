@@ -11,10 +11,40 @@
 li{
     list-style-type: none;
 }
+.search-input{
+    display: flex;
+    align-items: center;
+    display: none;
+    transition: 0.4s linear;
+
+}
 .search-input input{
     color: gray;
     max-width: 600px;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    width: 50%;
+
+
 }
+.header-menu-right li{
+    margin-left: 25px;
+}
+.search-input::after{
+    content: url("../img/Search16px.png");
+    margin-left: 10px;
+    cursor: pointer;
+
+}
+.menu {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
 .wrap {
     max-width: 1253px;
     margin: 0 auto;
@@ -65,7 +95,7 @@ a{
 a:hover{
     color: #00D664;
 }
-.dropbtn:after {
+.arrow:after {
     content: "\F107";
     font-family: FontAwesome;
     padding-left: 5px;
@@ -239,35 +269,45 @@ button:hover{
     margin: 0 auto;
     margin-bottom: 60px;
 }
-.menu-card a{
-    color: #777777;
-}
+
 .menu-card-content{
     padding: 30px 100px 70px;
     background: white;
     border-radius: 10px;
 
 }
-.menu-left, .menu-right{
-    
+.menu-main{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 }
-.menu-block{
+.menu-item{
     display: flex;
     text-align: start;
-    justify-content: space-between;
+    width: calc(45%);
+    justify-content: center;
 }
-.menu-block img{
+.menu-item img{
     width: 60px;
     height: 65px;
+    border-radius: 10px;
 }
-.menu-block h5 a{
+.menu-item h5 a{
     color: #1E266D;
     font-size: 22px;
     font-weight: 600;
     margin-bottom: 10px;
 }
+.menu-item h5{
+    border-bottom: 1px dashed rgba(105, 105, 105, 0.6);
+    margin-bottom: 10px;
+}
+.menu-item h5 a::after{
+}
 .text-menu{
     padding: 0 20px ;
+}
+.text-menu p{
 }
 .menu-content{
     display: flex;
@@ -343,6 +383,21 @@ button:hover{
     font-size: 18px;
     margin: 10px 0;
     
+}
+.menu-title{
+    padding-bottom: 30px;
+    border-bottom: 1px solid #cfcfcf;
+}
+.menu-selected{
+    margin-right: 20px;
+    color: #777777;
+
+}
+.active-menu{
+    color: #1E266D;
+    border-bottom: 3px solid #00D664;
+    padding-bottom: 30px;
+
 }
 .price-item:hover{
     box-shadow: 0px 0px 50px 1px rgba(34, 60, 80, 0.2);
@@ -463,6 +518,7 @@ button:hover{
     justify-content: space-between;
 }
 .subscribe-right{
+    flex-basis: 50%;
 }
 .subscribe p{
     font-size: 28px;
@@ -476,11 +532,12 @@ button:hover{
     justify-content: space-around;
 }
 .subscribe-email input{
-    max-width: 100%;
+    width: 100%;
     border-radius: 30px;
     background: #EDFCF4;
     border: 1px solid #F3F3F3;
     padding-left: 20px;
+    margin-right: 20px;
 }
 input::placeholder{
     color: #1E266D;
@@ -559,11 +616,38 @@ input::placeholder{
     color: #39374D;
 }
 
-@media (max-width: 1215px){
-    .header-top-menu{
+@media (max-width: 1253px){
+    .searchIcon{
         display: none;
     }
-    .header-top-menu-media{
+    .header-top{
+        display: grid;
+        grid-template-columns: 1fr 3fr 2fr 1fr;
+        grid-template-rows: repeat(2, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+            }
+    .header-top-logo {
+         grid-area: 1/ 1 / 2/ 2; 
+        }
+    .header-top-menu {
+         grid-area: 2 / 1 / 3 / 6;
+        justify-content: center;
+        }
+    .btn__green { 
+        justify-self: end;
+        grid-area: 1 / 2 / 2 / 5; 
+    }
+    .search-input { 
+        display: block;
+        grid-area: 1 / 2 / 2 / 4; 
+    }
+    .header-menu-right{
+        justify-self: center;
+        grid-area: 1/3/2/3;
+    }
+    
+    .header-top-menu{
         display: flex;
     }
     .header-top-menu-media{
@@ -596,6 +680,9 @@ input::placeholder{
     }
     .services-item{
         width: calc(40% - (25px));
+    }
+    .menu-item{
+        width: 100%;
     }
 }
 @media (max-width: 775px){
