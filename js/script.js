@@ -1,6 +1,39 @@
 const dropBtn = document.querySelectorAll(".dropbtn")
 const dropDown = document.querySelector(".dropdown-content")
 
+const btnNext = document.querySelector(".btn_next")
+const btnPrev = document.querySelector(".btn_prev")
+
+const carouselItem = document.querySelector('.carousel-item')
+const removeItem = document.querySelector('.review-item')
+
+let marginBase = 0
+let widthReview = removeItem.offsetWidth+30
+let maxWidth = -carouselItem.offsetWidth
+
+
+const nextSlide = ()=>{
+    // marginBase += widthReview
+    console.log(carouselItem.offsetWidth)
+
+    marginBase = marginBase - widthReview <= maxWidth? maxWidth : marginBase - widthReview
+    console.log(maxWidth)
+    document.getElementById("gallery-item").style.marginLeft = `${marginBase}px`
+    console.log(document.getElementById("gallery-item").style.marginLeft)
+
+}   
+const prevSlide = ()=>{
+    marginBase = marginBase + widthReview <= 0 ? marginBase + widthReview : 0 
+    // marginBase += widthReview
+
+    document.getElementById("gallery-item").style.marginLeft = `${marginBase}px`
+    console.log(document.getElementById("gallery-item").style.marginLeft)
+
+}   
+
+btnNext.addEventListener('click', nextSlide)
+btnPrev.addEventListener('click', prevSlide)
+
 for (let btn of dropBtn){
     let activeBtn
     btn.addEventListener('click', (e)=>{
