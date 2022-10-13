@@ -92,6 +92,9 @@ li{
 .menu-burger.active{
     transform: translateX(0);
 }
+.searchIcon{
+    display: none;
+}
 .btnBurger {
     font-size: 1.2rem;
     text-align: center;
