@@ -147,6 +147,10 @@ a{
 a:hover{
     color: #00D664;
 }
+.footer a:hover{
+    color: #00D664;
+
+}
 .arrow:after {
     content: "\F107";
     font-family: FontAwesome;
